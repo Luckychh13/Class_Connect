@@ -7,7 +7,6 @@ import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { DEPARTMENT_OPTIONS } from '@/constants'
 import { Subject } from '@/types'
-import { Value } from '@radix-ui/react-select'
 import { useTable } from '@refinedev/react-table'
 import type { ColumnDef } from "@tanstack/react-table";
 import { Search } from 'lucide-react'
@@ -43,7 +42,7 @@ const SubjectsList = () => {
       }, 
       {
         id:'department',
-        accessorKey:'department',
+        accessorKey:'department.name',
         size:150,
         header:() => <p className='column-title'>Department</p>,
         cell:({getValue}) => <Badge variant='secondary'>{getValue<string>()}</Badge>
@@ -76,7 +75,7 @@ const SubjectsList = () => {
     <ListView>
       <Breadcrumb />
 
-      <h1 className='page-title'>Subjecs</h1>
+      <h1 className='page-title'>Subjects</h1>
 
       <div className='intro-row'>
         <p>Quick access to essestial metrics and managment tools</p>
